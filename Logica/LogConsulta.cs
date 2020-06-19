@@ -68,7 +68,18 @@ namespace Logica
             return consulta.ToList();
         }
 
+        public List<MaterialApoyo> GetMaterialApoyo(Persona PersonaLogeada) {
+            var consulta = from p in db.PersonaEstudiantesGrupoGruposEstudiantes
+                           where p.Estudiantes.Equals(PersonaLogeada.Oid)
+                           join g in db.Grupo on p.GruposEstudiantes equals g.Oid
+                           join c in db.Curso on g.CursoAsociado equals c.Oid
+                           join m in db.MateriasTeóricasMateriasTeóricasCursoCursos on c.Oid equals m.Cursos
+                           join t in db.MateriasTeóricas on m.MateriasTeóricas equals t.Oid
+                           join a in db.MateriasTeóricasMateriasTeóricasMaterialApoyoMaterialApoyos on t.Oid equals a.MaterialApoyos
+                           join ma in db.MaterialApoyo on a.MaterialApoyos equals ma.Oid
+                           select ma;
+            return consulta.ToList();
 
-
+        }
     }
 }

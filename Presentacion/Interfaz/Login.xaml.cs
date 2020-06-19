@@ -44,6 +44,7 @@ namespace Presentacion.Interfaz
                 var y = LogConsulta.GetListaMateriasPracticas(Usuario);
                 var z = LogConsulta.GetListaMateriasTeoricas(Usuario);
                 var aa = LogConsulta.GetListaGrupos(Usuario);
+                var ab = LogConsulta.GetMaterialApoyo(Usuario);
                 MessageBox.Show("Correcto");
 
             }

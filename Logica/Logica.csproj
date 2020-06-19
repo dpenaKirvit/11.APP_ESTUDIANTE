@@ -119,6 +119,7 @@
   <ItemGroup>
     <Compile Include="LogConsulta.cs" />
     <Compile Include="LogIngreso.cs" />
+    <Compile Include="LogViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
