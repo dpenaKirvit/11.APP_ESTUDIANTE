@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Datos.Models;
+using Login.Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,27 @@ namespace Login.Vistas
     /// </summary>
     public partial class Ingreso : Page
     {
+        LogUsuario LogUsuario;
+        Persona Persona;
         public Ingreso()
         {
             InitializeComponent();
+        }
+
+        private void B_Ingresar_Click(object sender, RoutedEventArgs e)
+        {
+            LogUsuario = new LogUsuario();
+            Persona = LogUsuario.LVerificarUsuario(TB_Usuario.Text,TB_Password.Text);
+            if (Persona != null)
+            {
+                MessageBox.Show("Correcto");
+            }
+            else
+            {
+                TB_Password.Text = "";
+                TB_Usuario.Text = "";
+                MessageBox.Show("Usuario incorrecto");               
+            }
         }
     }
 }

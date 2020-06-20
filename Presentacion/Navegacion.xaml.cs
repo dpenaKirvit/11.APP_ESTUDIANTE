@@ -21,18 +21,13 @@ namespace Presentacion
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class Navegacion : Window
+    public partial class Navegacion : NavigationWindow
     {
         public Navegacion()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = new ContenidoEstudiante();
-        }
-
-        
+               
     }
 }
