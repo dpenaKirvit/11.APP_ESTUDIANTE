@@ -23,10 +23,12 @@ namespace Presentacion.Interfaz
     public partial class Login : Page
     {
         private LogIngreso LogIngreso;
+        private LogViewModelIngreso logViewModelIngreso;
         private Persona Usuario;
         private LogConsulta LogConsulta;
         public Login()
         {
+            logViewModelIngreso = new LogViewModelIngreso();
             InitializeComponent();
         }
         private void B_Ingresar_Click(object sender, RoutedEventArgs e)
@@ -39,12 +41,8 @@ namespace Presentacion.Interfaz
             }
             else 
             {
-                LogConsulta = new LogConsulta();
-                var x = LogConsulta.GetListaCursos(Usuario);
-                var y = LogConsulta.GetListaMateriasPracticas(Usuario);
-                var z = LogConsulta.GetListaMateriasTeoricas(Usuario);
-                var aa = LogConsulta.GetListaGrupos(Usuario);
-                var ab = LogConsulta.GetMaterialApoyo(Usuario);
+                LogConsulta = new LogConsulta(Usuario);
+                this.NavigationService.Navigate(new Uri("/Interfaz/PNavegacion.xaml", UriKind.Relative));
                 MessageBox.Show("Correcto");
 
             }

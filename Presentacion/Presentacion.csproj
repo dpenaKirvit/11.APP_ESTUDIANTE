@@ -272,6 +272,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Interfaz\PNavegacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Navegacion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -285,6 +289,9 @@
     </Compile>
     <Compile Include="Interfaz\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\PNavegacion.xaml.cs">
+      <DependentUpon>PNavegacion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Logica\Consulta.cs" />
     <Compile Include="Logica\ConsultaCurso.cs" />

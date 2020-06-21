@@ -13,29 +13,27 @@ namespace Logica
     public class LogConsulta
     {
         KIRVIT_AppContext db;
-        
+        Persona PersonaLogeada;
 
-        public LogConsulta()
+        public LogConsulta(Persona Usuario)
         {
+            PersonaLogeada = Usuario;
             db = new KIRVIT_AppContext();
         }
-
-        public List<Curso> GetListaCursos(Persona PersonaLogeada)
+        public List<Curso> GetListaCursos()
         {
-            
+
             var consulta = from p in db.PersonaEstudiantesGrupoGruposEstudiantes
                            where p.Estudiantes.Equals(PersonaLogeada.Oid)
                            join g in db.Grupo on p.GruposEstudiantes equals g.Oid
                            join c in db.Curso on g.CursoAsociado equals c.Oid
                            select c;
 
-            return consulta.ToList();          
-            
-          }
+            return consulta.ToList();
 
-       
-        public List<Grupo> GetListaGrupos(Persona PersonaLogeada) {
-
+        }
+        public List<Grupo> GetListaGrupos()
+        {
 
             var consulta = from p in db.PersonaEstudiantesGrupoGruposEstudiantes
                            where p.Estudiantes.Equals(PersonaLogeada.Oid)
@@ -46,7 +44,8 @@ namespace Logica
             return consulta.ToList();
         }
 
-        public List<MateriasTeóricas> GetListaMateriasTeoricas(Persona PersonaLogeada) {
+        public List<MateriasTeóricas> GetListaMateriasTeoricas()
+        {
             var consulta = from p in db.PersonaEstudiantesGrupoGruposEstudiantes
                            where p.Estudiantes.Equals(PersonaLogeada.Oid)
                            join g in db.Grupo on p.GruposEstudiantes equals g.Oid
@@ -57,7 +56,8 @@ namespace Logica
 
             return consulta.ToList();
         }
-        public List<MateriasPrácticas> GetListaMateriasPracticas(Persona PersonaLogeada) {
+        public List<MateriasPrácticas> GetListaMateriasPracticas()
+        {
             var consulta = from p in db.PersonaEstudiantesGrupoGruposEstudiantes
                            where p.Estudiantes.Equals(PersonaLogeada.Oid)
                            join g in db.Grupo on p.GruposEstudiantes equals g.Oid
@@ -68,7 +68,8 @@ namespace Logica
             return consulta.ToList();
         }
 
-        public List<MaterialApoyo> GetMaterialApoyo(Persona PersonaLogeada) {
+        public List<MaterialApoyo> GetMaterialApoyo()
+        {
             var consulta = from p in db.PersonaEstudiantesGrupoGruposEstudiantes
                            where p.Estudiantes.Equals(PersonaLogeada.Oid)
                            join g in db.Grupo on p.GruposEstudiantes equals g.Oid

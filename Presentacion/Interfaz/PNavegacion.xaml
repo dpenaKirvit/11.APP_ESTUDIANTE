@@ -1,0 +1,55 @@
+﻿<Page x:Class="Presentacion.Interfaz.PNavegacion"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Presentacion.Interfaz" xmlns:vm="clr-namespace:Logica;assembly=Logica"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PNavegacion">
+    <Page.Background>
+        <ImageBrush ImageSource="/Recursos/Imagen_4.png" Stretch="UniformToFill"/>
+    </Page.Background>
+
+   
+        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <SolidColorBrush Color="#FF34424D"/>
+            </Grid.Background>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <StackPanel>
+                    <TextBlock FontSize="15">Cursos</TextBlock>
+                 </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock FontSize="15">Información usuario</TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+                
+                
+
+            </Grid>
+
+        </Grid>
+
+        
+
+
+    </Grid>
+</Page>
