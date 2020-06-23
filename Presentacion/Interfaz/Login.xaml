@@ -16,7 +16,7 @@
     <Page.DataContext>
         <vm:LogViewModelIngreso/>
     </Page.DataContext>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
@@ -31,19 +31,16 @@
                 <RowDefinition Height="30*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-              
+
             </Grid>
-     
+
             <Grid Grid.Row="1">
-                
+
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    
-                        
-             
 
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" >
                         <Image Source="{Binding Path = Logo}" Stretch="Fill" HorizontalAlignment="Center"></Image>
-                        
+
                         <TextBlock FontSize="15">Usuario</TextBlock>
                         <TextBox BorderBrush="#FF0080D7" Name ="TB_Usuario" FontSize="15"/>
 

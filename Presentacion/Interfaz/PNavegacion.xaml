@@ -11,44 +11,130 @@
         <ImageBrush ImageSource="/Recursos/Imagen_4.png" Stretch="UniformToFill"/>
     </Page.Background>
 
-   
-        
+    <Page.DataContext>
+        <vm:LogViewModelNav/>
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*" />
             <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <Grid.Background>
-                <SolidColorBrush Color="#FF34424D"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0" Background="White">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="80*" />
+                <ColumnDefinition Width="20*" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <StackPanel>
-                    <StackPanel>
-                    <TextBlock FontSize="15">Cursos</TextBlock>
-                 </StackPanel>
-
-                    <StackPanel>
-                        <TextBlock FontSize="15">Información usuario</TextBlock>
-                    </StackPanel>
-
-                </StackPanel>
-                
-                
+                <Image Source="{Binding Logo}"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock FontSize="18" Text="{Binding NombreSoftware}" TextAlignment="Center" TextWrapping="WrapWithOverflow" Foreground="#FF34424D" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Image Source="{Binding Foto}" Width="50"/>
+                </Grid>
+                <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <Button Background="#FF34424D" Foreground="White" FontSize="18" Click="SalirClick">Salir</Button>
+                </Grid>
 
             </Grid>
 
         </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <StackPanel>
+                        <TextBlock FontSize="20" Background="#FF34424D" Foreground="White">Cursos</TextBlock>
+                        <ListBox x:Name="LCursos" ItemsSource="{Binding ListaCursos}" FontSize="15" >
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock FontSize="20" Background="#FF34424D" Foreground="White">Grupos</TextBlock>
+                        <ListBox x:Name="LGrupos" ItemsSource="{Binding ListaGrupos}" FontSize="15" >
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock FontSize="20" Background="#FF34424D" Foreground="White">Materias teóricas</TextBlock>
+                        <ListBox x:Name="LMatTeoricas" ItemsSource="{Binding ListaMateriasTeoricas}" FontSize="15">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListBoxItem}">
+                                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListBox_MouseLeftButtonDown" />
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock FontSize="20" Background="#FF34424D" Foreground="White">Materias prácticas</TextBlock>
+                        <ListBox x:Name="LMatPracticas" ItemsSource="{Binding ListaMateriasPracticas}" FontSize="15" >
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock FontSize="20" Background="#FF34424D" Foreground="White">Información usuario</TextBlock>
+                        <TextBlock FontSize="15" Text="{Binding NombreUsuario}" Background="White"/>
+                        <TextBlock FontSize="15" Text="{Binding IdentificacionUsuario}" Background="White"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
 
-        
+            <Grid Grid.Column="1" Name="grid_Materia" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="440*"/>
+                    <ColumnDefinition Width="131*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Background="White">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Background="White">
+                        <Button HorizontalAlignment="Right" Click="bX_clic_Salir" VerticalAlignment="Center" Background="#FF34424D" Foreground="White" FontSize="20">X</Button>
+                        <TextBlock Text="{Binding MateriaActual}" HorizontalAlignment="Center" FontSize="20" Foreground="#FF34424D" FontWeight="Bold" ></TextBlock>
+                    </Grid>
+
+
+                    <Grid Grid.Row="1">
+
+
+                        <TextBlock Text="{Binding DescripcionMateria}" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Foreground="#FF34424D" Margin="20,0,0,0" FontSize="12"></TextBlock>
+
+                    </Grid>
+
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="10,10,10,10">
+                            <Button Name="btn_Pantalla_Navegacion" Click="btnPantalla_NavegacionClick" FontSize="15" Background="#FF34424D" Foreground="White" FontWeight="Bold">Pantalla Despliegue</Button>
+                        </Grid>
+                        <Grid Grid.Column="2" Margin="10,10,10,10">
+                            <Button Name="btn_Evaluacion" Click="btn_EvaluacionClick" FontSize="15" Background="#FF34424D" Foreground="White" FontWeight="Bold">Evaluación</Button>
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+
 
 
     </Grid>

@@ -23,26 +23,26 @@ namespace Presentacion.Interfaz
     public partial class Login : Page
     {
         private LogIngreso LogIngreso;
-        private LogViewModelIngreso logViewModelIngreso;
-        private Persona Usuario;
-        private LogConsulta LogConsulta;
+        private Persona _usuario;
+
         public Login()
         {
-            logViewModelIngreso = new LogViewModelIngreso();
             InitializeComponent();
         }
+
+       
         private void B_Ingresar_Click(object sender, RoutedEventArgs e)
         {
             LogIngreso = new LogIngreso();
-            Usuario = LogIngreso.ValidarUsuario(TB_Usuario.Text, TB_Password.Password);
-            if (Usuario == null)
+        
+            if (LogIngreso.ValidarUsuario(TB_Usuario.Text, TB_Password.Password) == null)
             {
                 MessageBox.Show("Usuario y/o contraseña incorrecta");
             }
-            else 
+            else
             {
-                LogConsulta = new LogConsulta(Usuario);
-                this.NavigationService.Navigate(new Uri("/Interfaz/PNavegacion.xaml", UriKind.Relative));
+                _usuario = LogIngreso.ValidarUsuario(TB_Usuario.Text, TB_Password.Password);
+                this.NavigationService.Navigate(new PNavegacion(_usuario));
                 MessageBox.Show("Correcto");
 
             }

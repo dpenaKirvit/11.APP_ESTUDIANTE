@@ -16,7 +16,7 @@ namespace Logica
             db = new KIRVIT_AppContext();        
         }
 
-
+      
         public Persona ValidarUsuario(string txt_user, string txt_password) {
             PermissionPolicyUser UsuarioDatos = db.PermissionPolicyUser.FirstOrDefault(x => x.UserName.Equals(txt_user));
 

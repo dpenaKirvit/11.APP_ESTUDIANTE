@@ -12,25 +12,12 @@ namespace Logica
 {
     public class LogViewModelIngreso
     {
-        private string _NombreSoftware;
-        private string _NombreAbreviado;
+       
         private byte[] _Logo;
         private KIRVIT_AppContext db;
 
 
-        public string NombreSoftware
-        {
-            get { return _NombreSoftware; }
-            set { _NombreSoftware = value; }
-
-        }
-
-        public string NombreAbreviado
-        {
-            get { return _NombreAbreviado; }
-            set { _NombreAbreviado = value; }
-
-        }
+       
 
         public byte[] Logo
         {
@@ -51,8 +38,6 @@ namespace Logica
         public LogViewModelIngreso()
         {
             db = new KIRVIT_AppContext();
-            NombreSoftware = ConsultaInicial().Select(x => x.NombreAbreviado).First().ToString();
-            NombreAbreviado = ConsultaInicial().Select(x => x.Nombre).First().ToString();
             Logo = ConsultaInicial().Select(x => x.Imagen).First();      
 
         }

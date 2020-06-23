@@ -4,67 +4,131 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
-        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" 
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:vm="clr-namespace:Logica;assembly=Logica"
         mc:Ignorable="d"
-        Title="Despliegue" Height="450" Width="800">
+        Title="Despliegue" Height="768" Width="1366">
+    <Window.Background>
+        <ImageBrush ImageSource="/Recursos/Imagen_4.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <!---->
+    <Window.DataContext>
+        <vm:LogViewModelNav/>
+    </Window.DataContext>
+
     <Grid>
-        <Grid  Background="Black" HorizontalAlignment="Left" Height="768" Margin="0,0,0,0" VerticalAlignment="Top" Width="1366">
+        <Grid  HorizontalAlignment="Left" Height="768" Margin="0,0,0,0" VerticalAlignment="Top" Width="1366">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="40*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" >
-                <TextBlock Text="ENTRENADOR DE PROCEDIMIENTOS Y EMERGENCIAS" TextAlignment="Center" VerticalAlignment="Center" Foreground="#FF1868A1" FontSize="20" FontWeight="Bold"/>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF4983AC" Offset="1"/>
-                        <GradientStop Color="White" Offset="0.703"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
+            <Grid Grid.Row="0" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*" />
+                    <ColumnDefinition Width="80*" />
+                    <ColumnDefinition Width="20*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Image Source="{Binding Logo}"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBlock FontSize="18" Text="{Binding NombreSoftware}" TextAlignment="Center" TextWrapping="WrapWithOverflow" Foreground="#FF34424D" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="30*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Image Source="{Binding Foto}" Width="60"/>
+                    </Grid>
+                </Grid>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="17*"/>
-                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="75*"/>
+                    <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="120*"/>
                         <RowDefinition Height="20*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <wpf:ChromiumWebBrowser x:Name="Browser" Address="file:///D:/DAVID_PEÑA/KV_IS3/PRY_74_C_130_H/2.ELABORACION/3.DISEÑO%20GRAFICO/Generalidades_V2/Generalidades_STM/index.html"/>
+                    <Grid Grid.Row="0" Visibility="Visible">
+                       
+                            <wpf:ChromiumWebBrowser Name="Browser" Address="{Binding URL}" Visibility="Visible"/>
+                                            
+                            <MediaElement Name="Videos" Source="{Binding URL}" Visibility="Collapsed"></MediaElement>
+                       
                     </Grid>
                     <Grid Grid.Row="1">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Margin="0" Width ="185" Background="Black" Foreground="White">Videos</Button>
-                            <Button Margin="0" Width ="175" Background="Black" Foreground="White">Presentaciones</Button>
-                            <Button Margin="0" Width ="190" Background="Black" Foreground="White">Imágenes</Button>
-                            <Button Margin="0" Width ="185" Background="Black" Foreground="White">Manuales</Button>
-                            <Button Margin="0" Width ="190" Background="Black" Foreground="White" Content="Tablas"/>
-                        </StackPanel>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button Margin="0" FontSize="18"  Background="White" Foreground="#FF34424D" Click="Btn_VideosClic">Videos</Button>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Margin="0"  FontSize="18"  Background="White" Foreground="#FF34424D" Click="Btn_PresentacionesClic">Presentaciones</Button>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Button Margin="0" FontSize="18"  Background="White" Foreground="#FF34424D" Click="Btn_ImagenesClic">Imágenes</Button>
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <Button Margin="0" FontSize="18"   Background="White" Foreground="#FF34424D" Click="Button_ManualesClick">Manuales</Button>
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <Button Margin="0" FontSize="18"  Background="White" Foreground="#FF34424D" Click="Button_TablasClick">Tablas
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Column="5">
+                            <Button Margin="0" FontSize="18"  Background="White" Foreground="#FF34424D" Click="Button_AnimacionesClick">Animaciones
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
-                <Grid Grid.Column="1">
-                    <Grid>
-                        <StackPanel Background="white" Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="20" >
-                            <StackPanel  Background="#FF003C5D" >
-                                <TextBlock HorizontalAlignment="Center" Text="ARCHIVOS" FontSize="22" FontFamily="Corbel" Foreground="white"/>
+                <Grid Grid.Column="1" VerticalAlignment="Stretch" Background="White">
+
+                    <Grid VerticalAlignment="Stretch" Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="80*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <StackPanel  Background="#FF003C5D"  VerticalAlignment="Stretch">
+                                <TextBlock Name="NombreArchivos" HorizontalAlignment="Center" Text="ARCHIVOS" FontSize="22" FontFamily="Corbel" Foreground="white"/>
                             </StackPanel>
-                        </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1" VerticalAlignment="Stretch">
+                            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <ListBox x:Name="MaterialApoyo" ItemsSource="{Binding ListaMaterialApoyo }" FontSize="15" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListBoxItem}">
+                                            <EventSetter Event="PreviewMouseDoubleClick" Handler="ListBox_MouseLeftButtonDown" />
+                                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                            <Setter Property="Width" Value="250"/>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </Grid>
                     </Grid>
                 </Grid>
-
-
             </Grid>
             <Grid Grid.Row="2" Background="#FF002B48">
-
-
             </Grid>
-
-
-
         </Grid>
 
 
