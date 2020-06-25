@@ -28,6 +28,7 @@ namespace Presentacion.Interfaz
         public Login()
         {
             InitializeComponent();
+           
         }
 
        

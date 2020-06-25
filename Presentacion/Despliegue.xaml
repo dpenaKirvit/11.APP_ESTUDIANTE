@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Presentacion"
         xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:vm="clr-namespace:Logica;assembly=Logica"
         mc:Ignorable="d"
-        Title="Despliegue" Height="768" Width="1366">
+        Title="Despliegue">
     <Window.Background>
         <ImageBrush ImageSource="/Recursos/Imagen_4.png" Stretch="UniformToFill"/>
     </Window.Background>
@@ -16,7 +16,7 @@
     </Window.DataContext>
 
     <Grid>
-        <Grid  HorizontalAlignment="Left" Height="768" Margin="0,0,0,0" VerticalAlignment="Top" Width="1366">
+        <Grid  HorizontalAlignment="Stretch" Height="768" Margin="0,0,0,0" VerticalAlignment="Stretch" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="40*"/>

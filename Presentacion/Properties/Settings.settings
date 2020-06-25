@@ -5,10 +5,22 @@
     <Setting Name="connection" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DAVID-FERNANDO\\SQLEXPRESS;Initial Catalog=KIRVIT_App;User ID=sa;Password=root&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=DAVID-FERNANDO\SQLEXPRESS;Initial Catalog=KIRVIT_App;User ID=sa;Password=root;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;Trusted_Connection=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DAVID-FERNANDO\\SQLEXPRESS;Initial Catalog=KIRVIT_App;User ID=sa;Password=root</Value>
+      <Value Profile="(Default)">Data Source=DAVID-FERNANDO\SQLEXPRESS;Initial Catalog=KIRVIT_App;User ID=sa;Password=root;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;Trusted_Connection=True</Value>
+    </Setting>
+    <Setting Name="Nav_Width" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1366</Value>
+    </Setting>
+    <Setting Name="Nav_Height" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">768</Value>
+    </Setting>
+    <Setting Name="Despliegue_Width" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1366</Value>
+    </Setting>
+    <Setting Name="Despliegue_Height" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">768</Value>
     </Setting>
   </Settings>
 </SettingsFile>

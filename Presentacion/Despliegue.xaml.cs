@@ -24,6 +24,8 @@ namespace Presentacion
         public Despliegue(Persona UsuarioLogeado, string MateriaActual)
         {
             InitializeComponent();
+            Height = Double.Parse(Presentacion.Properties.Settings.Default.Despliegue_Height);
+            Width = Double.Parse(Presentacion.Properties.Settings.Default.Despliegue_Width);
             ((LogViewModelNav)DataContext).UsuarioLogeado = UsuarioLogeado;
             ((LogViewModelNav)DataContext).MateriaActual = MateriaActual;
         }

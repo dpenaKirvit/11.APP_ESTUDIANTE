@@ -27,6 +27,8 @@ namespace Presentacion.Interfaz
        public PNavegacion(Persona UsuarioLogeado)
         {
           InitializeComponent();
+            
+        
             _usuarioLogeado = UsuarioLogeado;
           ((LogViewModelNav)DataContext).UsuarioLogeado = UsuarioLogeado;
         }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Presentacion.Interfaz" xmlns:vm="clr-namespace:Logica;assembly=Logica"
       mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="1366"
+      
       Title="Login">
 
     <Page.Background  >
@@ -26,9 +26,9 @@
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30*"/>
-                <RowDefinition Height="30*"/>
-                <RowDefinition Height="30*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
 
@@ -49,7 +49,7 @@
 
                     </StackPanel >
                     <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <Button Margin="0,10,0,0" Click="B_Ingresar_Click" FontSize="15">Ingresar</Button>
+                        <Button Margin="0,10,0,0" Click="B_Ingresar_Click" FontSize="15"  Foreground="#FF34424D" Background="White" BorderBrush="#FF34424D" BorderThickness="2">Ingresar</Button>
                     </StackPanel>
 
                 </StackPanel>

@@ -5,7 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Presentacion.Interfaz" xmlns:vm="clr-namespace:Logica;assembly=Logica"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="PNavegacion">
     <Page.Background>
         <ImageBrush ImageSource="/Recursos/Imagen_4.png" Stretch="UniformToFill"/>
@@ -14,13 +13,13 @@
     <Page.DataContext>
         <vm:LogViewModelNav/>
     </Page.DataContext>
-    <Grid>
+    <Grid VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*" />
             <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Background="White">
+        <Grid Grid.Row="0" Background="White" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20*" />
                 <ColumnDefinition Width="80*" />
@@ -47,13 +46,13 @@
             </Grid>
 
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <StackPanel>
+            <Grid Grid.Column="0" VerticalAlignment="Stretch">
+                <StackPanel VerticalAlignment="Stretch">
                     <StackPanel>
                         <TextBlock FontSize="20" Background="#FF34424D" Foreground="White">Cursos</TextBlock>
                         <ListBox x:Name="LCursos" ItemsSource="{Binding ListaCursos}" FontSize="15" >
@@ -69,7 +68,7 @@
                         <ListBox x:Name="LMatTeoricas" ItemsSource="{Binding ListaMateriasTeoricas}" FontSize="15">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListBoxItem}">
-                                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListBox_MouseLeftButtonDown" />
+                                    <EventSetter Event="PreviewMouseDoubleClick" Handler="ListBox_MouseLeftButtonDown" />
                                 </Style>
                             </ListBox.ItemContainerStyle>
                         </ListBox>
@@ -87,44 +86,39 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Grid.Column="1" Name="grid_Materia" Visibility="Collapsed">
+            <Grid Grid.Column="1" Name="grid_Materia" Visibility="Collapsed" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="440*"/>
                     <ColumnDefinition Width="131*"/>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Background="White">
+                <Grid Grid.Column="0" Background="White" VerticalAlignment="Stretch">
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="60*"/>
-                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0" Background="White">
-                        <Button HorizontalAlignment="Right" Click="bX_clic_Salir" VerticalAlignment="Center" Background="#FF34424D" Foreground="White" FontSize="20">X</Button>
-                        <TextBlock Text="{Binding MateriaActual}" HorizontalAlignment="Center" FontSize="20" Foreground="#FF34424D" FontWeight="Bold" ></TextBlock>
+                    <Grid Grid.Row="0" Background="White" VerticalAlignment="Stretch">
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Right" Click="bX_clic_Salir" Background="#FF34424D" Foreground="White" FontSize="20">X</Button>
+                        <TextBlock Text="{Binding MateriaActual}" HorizontalAlignment="Center" FontSize="20" Foreground="#FF34424D" FontWeight="Bold" VerticalAlignment="Top" ></TextBlock>
                     </Grid>
 
 
-                    <Grid Grid.Row="1">
-
-
+                    <Grid Grid.Row="1" VerticalAlignment="Stretch">
                         <TextBlock Text="{Binding DescripcionMateria}" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Foreground="#FF34424D" Margin="20,0,0,0" FontSize="12"></TextBlock>
-
                     </Grid>
-
-
-                    <Grid Grid.Row="2">
+                    <Grid Grid.Row="2" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="10*"/>
                         </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Margin="10,10,10,10">
-                            <Button Name="btn_Pantalla_Navegacion" Click="btnPantalla_NavegacionClick" FontSize="15" Background="#FF34424D" Foreground="White" FontWeight="Bold">Pantalla Despliegue</Button>
+                        <Grid Grid.Column="0" Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <Button Name="btn_Pantalla_Navegacion" Click="btnPantalla_NavegacionClick" VerticalAlignment="Stretch" FontSize="15" Background="#FF34424D" Foreground="White" FontWeight="Bold">Pantalla Despliegue</Button>
                         </Grid>
-                        <Grid Grid.Column="2" Margin="10,10,10,10">
-                            <Button Name="btn_Evaluacion" Click="btn_EvaluacionClick" FontSize="15" Background="#FF34424D" Foreground="White" FontWeight="Bold">Evaluación</Button>
+                        <Grid Grid.Column="2" Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <Button Name="btn_Evaluacion" Click="btn_EvaluacionClick" FontSize="15" VerticalAlignment="Stretch" Background="#FF34424D" Foreground="White" FontWeight="Bold">Evaluación</Button>
                         </Grid>
 
                     </Grid>
