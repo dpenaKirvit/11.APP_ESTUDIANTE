@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -78,8 +79,7 @@ namespace Datos.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DAVID-FERNANDO\\SQLEXPRESS;Database=KIRVIT_App;Persist Security Info=False;User ID=sa;Password=root;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["Presentacion.Properties.Settings.connection"].ConnectionString);
             }
         }
 
