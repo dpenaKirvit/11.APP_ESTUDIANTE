@@ -212,7 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CefSharp.Wpf">
-      <Version>81.3.100</Version>
+      <Version>98.1.210</Version>
     </PackageReference>
     <PackageReference Include="Expression.Blend.Sdk">
       <Version>1.0.2</Version>
